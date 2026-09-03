@@ -1,0 +1,777 @@
+@charset "UTF-8";
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --bg-deep: #050b16;
+    --bg-sidebar: rgba(10, 18, 33, 0.75);
+    --bg-card: rgba(13, 22, 38, 0.65);
+    --accent-blue: #0d6efd;
+    --text-muted: #8a94a6;
+    --text-main: #e1e7ef;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= GLOBAL STYLES ================= */
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    background: var(--bg-sidebar);
+    backdrop-filter: blur(18px);
+    border-right: 1px solid var(--border-color);
+    padding: 20px 15px;
+    /* transition: 0.3s; */
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+}
+
+/* ================= BRAND SECTION ================= */
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.brand-logo {
+    font-size: 24px;
+    color: #71c5ee;
+}
+
+.brand-text {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* ================= NAVIGATION ================= */
+.nav-link {
+    color: var(--text-muted);
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    transition: all 0.25s ease;
+}
+
+.nav-link i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background: rgba(13, 110, 253, 0.12);
+}
+
+.nav-link.active {
+    background: linear-gradient(90deg,#0d6efd,#2563eb);
+    box-shadow: 0 6px 20px rgba(13,110,253,0.35);
+    color: white;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+    margin-left: 260px;
+    padding: 20px 30px;
+    transition: margin-right 0.3s ease;
+}
+
+.main-content.collapsed {
+    margin-left: 70px;
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(13, 22, 38, 0.5);
+    padding: 10px 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+}
+
+/* ================= PROFILE AREA ================= */
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    background: #2c3e50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout-btn {
+    margin-left: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #cfd8dc;
+    padding: 6px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: rgba(255,0,0,0.15);
+    color: #ff6b6b;
+}
+
+/* ================= CARDS ================= */
+.card-custom {
+    background: var(--bg-card);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.metric-title {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.trend-up {
+    color: #4ade80;
+}
+
+/* ================= CHART ================= */
+.chart-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(#0d6efd 0% 40%, #10b981 40% 70%, #f59e0b 70% 85%, #3b82f6 85%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-inner {
+    width: 130px;
+    height: 130px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* ================= ACTIVITY LIST ================= */
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* ================= SIDEBAR BUTTON ================= */
+.slidbar-btn:hover{
+    border: 1px solid white;
+}
+
+.slidbar-icon{
+    color: white;
+    font-size: medium;
+    padding: 2px;
+}
+
+/* ================= DASHBOARD ICONS ================= */
+.dashboard-icon-ship{
+    font-size: 55px;
+    color: #0d6efd;
+}
+
+.dashboard-icon-dock{
+    font-size: 55px;
+    color: cyan;
+}
+
+.dashboard-icon-container{
+    font-size: 55px;
+    color: #f59e0b;
+}
+
+.dashboard-icon-cargo{
+    font-size: 55px;
+    color: #10b981;
+}
+
+/* ================= LOGO ================= */
+.port-logo{
+    font-size: 30px;
+}
+
+.logo-link{
+    color: rgb(249, 249, 255);
+    font-size: 200px;
+    padding: 10px 9px 0px 9px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.25s ease;
+}
+
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .logo-link span {
+    display: none;
+    color: var(--text-muted);
+}
+
+.logo-sub-text {
+    color: var(--text-muted);
+}
+
+/* ================= MODAL ================= */
+.glass-modal {
+    background: rgba(13, 22, 38, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    color: #e1e7ef;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff4d4f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff4d4f;
+    font-size: 20px;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* ================= MODAL BUTTONS ================= */
+.btn-cancel {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #cfd8dc;
+}
+
+.btn-cancel:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-danger {
+    background: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background: #bb2d3b;
+}
+
+/* ================= STATUS PILL ================= */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.active-pill {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.inactive-pill {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.status-pill:hover {
+    opacity: 0.8;
+    cursor: default;
+}
+
+/* ================= BUTTONS ================= */
+.status-btn {
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.edit-btn {
+    background: rgba(13, 110, 253, 0.15);
+    color: #0d6efd;
+}
+
+.active-btn {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.inactive-btn {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.action-btn{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* ================= CONTENT AREA ================= */
+.content-area {
+    padding: 30px;
+}
+
+/* ================= TABLE ================= */
+.custom-table {
+    background-color: #171e2b;
+    color: white !important;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.custom-table th {
+    background-color: #171e2b;
+    color: white !important;
+}
+
+.custom-table td, .custom-table th {
+    padding: 12px;
+    background-color: #0a1221;
+    color: white !important;
+}
+
+/* ================= TABLE STATUS ================= */
+.status-active {
+    background-color: #16a34a;
+}
+
+.status-inactive {
+    background-color: #dc2626;
+}
+
+/* ================= TABLE BUTTONS ================= */
+.btn-edit {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: white;
+}
+
+/* ================= SEARCH ================= */
+
+/* CONTENT WIDTH CONTROL */
+.content-area {
+    width: 100%;
+}
+
+/* GLASS EFFECT (Reusable) */
+.glass-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* TOP BAR */
+.topbar-glass h3 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.topbar-glass small {
+    color: #a0aec0;
+}
+
+/* SEARCH SECTION */
+.search-glass {
+    padding: 15px 20px;
+}
+
+/* INPUT */
+.search-input {
+    background-color: #0f172a;
+    border: 1px solid #2d3748;
+    color: white;
+    min-width: 180px;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* BUTTONS */
+.search-btn,
+.add-user-btn {
+    background: linear-gradient(90deg,#0d6efd,#2563eb);	
+    border: none;
+}
+
+.search-btn:hover,
+.add-user-btn:hover {
+    background: rgba(13, 110, 253, 0.12);	
+    color: #0a58ca;
+    border: none;
+}
+
+.clear-btn {
+    background-color: #334155;
+    border: none;
+}
+
+/* BUTTON SPACING */
+.search-section .btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.search-section .clear-btn {
+    background: rgba(13, 110, 253, 0.12);	
+    color: #0a58ca;
+}
+
+.search-section .clear-btn:hover {
+    background: linear-gradient(90deg,#0d6efd,#2563eb);	
+    color: white;
+}
+
+/* TABLE FIX (match theme) */
+.custom-table {
+    background-color: #171e2b !important;
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.custom-table thead {
+    background-color: #1e293b;
+}
+
+.custom-table th,
+.custom-table td {
+    border-color: #2d3748 !important;
+}
+/* ================= PAGINATION ================= */
+.custom-pagination .page-link {
+    background: #1f2937;
+    color: white;
+    border: none;
+}
+
+.custom-pagination .active .page-link {
+    background: #2563eb;
+}
+
+/* ===== USER MODAL BASE (Glass Effect) ===== */
+.user-modal .user-modal-content {
+    background: rgba(23, 30, 43, 0.75);   /* Dark glass background */
+    backdrop-filter: blur(12px);           /* Blur effect behind modal */
+    border-radius: 15px;                   /* Smooth rounded corners */
+    border: 1px solid rgba(255,255,255,0.1); /* Subtle border glow */
+    color: #ffffff;                        /* Default text color */
+}
+
+
+/* ===== HEADER STYLING ===== */
+.user-modal .user-modal-header {
+    border-bottom: 1px solid rgba(255,255,255,0.08); /* Light divider */
+    padding-bottom: 8px;
+}
+
+.user-modal .user-modal-title {
+    font-weight: 600;   /* Slightly bold title */
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+/* ===== CLOSE BUTTON (X) ===== */
+.user-modal .user-modal-close {
+    filter: invert(1);  /* Makes default Bootstrap X white */
+    opacity: 0.8;
+}
+
+.user-modal .user-modal-close:hover {
+    opacity: 1;         /* Brighter on hover */
+}
+
+
+/* ===== FORM LABELS ===== */
+.user-modal .user-label {
+    color: #cfcfcf;     /* Soft gray for labels */
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+
+/* ===== INPUT & SELECT FIELDS ===== */
+.user-modal .user-input,
+.user-modal .user-select {
+    background: rgba(255,255,255,0.05); /* Transparent glass input */
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Fix SELECT dropdown (closed state) */
+.user-modal .user-select {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+}
+
+/* Fix dropdown options (opened list) */
+.user-modal .user-select option {
+    background-color: #171e2b;  /* Dark background */
+    color: #ffffff;             /* White text */
+}
+
+/* Placeholder text color */
+.user-modal .user-input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+
+/* Focus effect (when clicking input) */
+.user-modal .user-input:focus,
+.user-modal .user-select:focus {
+    border-color: #4dabf7;              /* Blue glow */
+    box-shadow: 0 0 8px rgba(77,171,247,0.4);
+    outline: none;
+}
+
+
+/* ===== BUTTON STYLING ===== */
+.user-modal .user-btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+
+/* Button hover effect */
+.user-modal .user-btn:hover {
+    transform: translateY(-2px);       /* Slight lift */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+/* ===== FORM SPACING ===== */
+.user-modal .user-field {
+    margin-bottom: 15px;
+}
+
+
+/* ===== RESPONSIVE TWEAK ===== */
+@media (max-width: 576px) {
+    .user-modal .user-modal-content {
+        padding: 15px;
+    }
+}
+
+/* Blur background when any modal is open */
+.modal-backdrop.show {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Optional: smooth glass feel */
+.modal-backdrop {
+    transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+.pill-steelblue {
+    background: rgba(70, 130, 180, 0.15); /* SteelBlue with 0.15 */
+    color: #4682b4; /* SteelBlue text */
+}
+
+.pill-green {
+    background: rgba(40, 167, 69, 0.15); /* Green with 0.15 */
+    color: #28a745; /* Green text */
+}
+
+.pill-yellow {
+    background: rgba(255, 193, 7, 0.15); /* Yellow with 0.15 */
+    color: #ffc107; /* Yellow text */
+}
+
+.step {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.step.active {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.step-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(10px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+ 
+/* FIX WHITE INPUT */
+.user-input {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    color: white !important;
+    backdrop-filter: blur(10px);
+}
+
+.user-input::placeholder {
+    color: #aaa;
+}
+
+/* SELECT FIX */
+select.user-input {
+    background-color: rgba(255,255,255,0.08) !important;
+    color: white !important;
+}
+
+
+
+/* Select box */
+.user-input,
+.user-select {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Dropdown options */
+.user-input option,
+.user-select option {
+    background: #1e1e2f;   /* dark background */
+    color: white;
+}
+
+/* Fix selected option */
+.user-input:focus,
+.user-select:focus {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+.step-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 60px 30px 60px;
+}
+
+/* Progress line */
+.progress-line {
+    position: absolute;
+    top: 45%;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #00f5ff, #00ff9d);
+    transition: 0.4s ease;
+    z-index: 0;
+}
+
+/* Step circles */
+.step {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+/* Active step */
+.step.active {
+    background: linear-gradient(135deg, #00f5ff, #00ff9d);
+    box-shadow: 0 0 10px #00f5ff;
+    transform: scale(1.1);
+}
+
+.table>tbody {
+    vertical-align: middle !important;
+}
